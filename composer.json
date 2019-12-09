@@ -1,0 +1,21 @@
+{
+    "name": "bdntj/squad2-sdk",
+    "description": "Client side sdk by squad-2 vhsys/codenation",
+    "authors": [
+        {
+            "name": "brendonhps",
+            "email": "brendonhps@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^4.2"
+    },
+    "require-dev": {
+        "filp/whoops": "2.*"
+      },
+      "autoload": {
+        "psr-4": {
+          "SDK\\":"src/"
+        }
+      }
+}

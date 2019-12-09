@@ -1,0 +1,5 @@
+<?php
+
+const MAIL = "mail";
+const PW = "pw";
+const ENV = "ambiente";
