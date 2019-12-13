@@ -26,7 +26,7 @@ function getToken():string {
     ));
 
     // Send the request
-    $response = file_get_contents('http://127.0.0.1:8000/api/login', FALSE, $context);
+    $response = file_get_contents('https://frozen-fortress-37712.herokuapp.com/api/login', FALSE, $context);
 
     // Check for errors
     if($response === FALSE){
@@ -53,7 +53,7 @@ function sendData($data) {
     ));
 
     // Send the request
-    $response = file_get_contents('http://127.0.0.1:8000/api/logs?token=' . $authToken, FALSE, $context);
+    $response = file_get_contents('https://frozen-fortress-37712.herokuapp.com/api/logs?token=' . $authToken, FALSE, $context);
 
     // Check for errors
     if($response === FALSE){
@@ -99,65 +99,3 @@ function handleWithWhoops($event)
 
     sendData($data);
 }
-
-
- // Auxiliar Function
-function inverse($x) {
-    if (!$x) {
-        throw new Exception('Division by zero.');
-    }
-    return 1/$x;
-}
-
-function test($x):int {
-    return $x;
-}
-
-//////////////////////////////////////////////
-//                                          //
-// Example of client-side exceptions/errors //
-//                                          //
-//////////////////////////////////////////////
-function main() {
-
-
-
- for($i = 0; $i < 5 ; ++$i) {
-    try {
-        inverse(0) . "\n";
-    
-    } catch (Exception $e) {
-        gettype($e);
-        handleWithWhoops($e);
-    }
-
-    try {
-        throw new UnderflowException('Underflow exception in ahritmetic operation');
-    }catch (UnderflowException $e) {
-       
-        handleWithWhoops($e);
-    }
-
-    try {
-        throw new InvalidArgumentException('Invalid Arguments on the function');
-    }catch (InvalidArgumentException $e) {
-       
-        handleWithWhoops($e);
-    }
-
-    try {
-        throw new UnexpectedValueException('Unexpected Value');
-    }catch (UnexpectedValueException $e) {
-        
-        handleWithWhoops($e);
-    }
-
-    try {
-        test('ss');
-    }catch(TypeError $e){
-        handleWithWhoops($e);
-    }
-    }
-}
-
-main();
