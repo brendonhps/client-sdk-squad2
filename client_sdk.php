@@ -43,6 +43,7 @@ function sendData($data) {
 
     $authToken = getToken();
 
+
     // Create the context for the request
     $context = stream_context_create(array(
         'http' => array(
@@ -58,6 +59,10 @@ function sendData($data) {
     // Check for errors
     if($response === FALSE){
         die('Error');
+    }else {
+        $json_string = json_encode($data, JSON_PRETTY_PRINT);
+        print_r($json_string . " foi enviado via HTTP POST para https://frozen-fortress-37712.herokuapp.com/api/logs \r\n");
+        
     }
 
 }
