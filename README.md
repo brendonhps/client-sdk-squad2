@@ -12,6 +12,6 @@ To install this project:
 
 3) set the environment vars in config.php (email,password and ambiente of your monitored application)
 
-4) php client_sdk.php
+4) php client_example.php
 
 
